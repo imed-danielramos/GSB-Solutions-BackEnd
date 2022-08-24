@@ -20,7 +20,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    final String awsIp = "http://ec2-3-129-18-150.us-east-2.compute.amazonaws.com:4200";
+
+    @CrossOrigin(origins = awsIp)
     @RequestMapping(value = "/addUser/{name}/{surname}/{email}/{address}", method = RequestMethod.GET)
     public ResponseEntity<String> addUser(@PathVariable String name, @PathVariable String surname,
             @PathVariable String email, @PathVariable String address) {
@@ -28,7 +30,7 @@ public class UserController {
         return ResponseEntity.ok().body(result);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = awsIp)
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET)
     public ResponseEntity<List<UserModel>> getUsers() {
         List<UserModel> result = userService.getUsers();
