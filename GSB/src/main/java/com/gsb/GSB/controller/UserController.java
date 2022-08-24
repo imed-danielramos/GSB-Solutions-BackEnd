@@ -20,8 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // final String awsIp = "http://ec2-3-129-18-150.us-east-2.compute.amazonaws.com:4200";
-    final String awsIp = "http://localhost:4200";
+    final String awsIp = "http://ec2-3-129-18-150.us-east-2.compute.amazonaws.com:4200";
 
     @CrossOrigin(origins = awsIp)
     @RequestMapping(value = "/addUser/{name}/{surname}/{email}/{address}", method = RequestMethod.GET)
